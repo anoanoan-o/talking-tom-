@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node { int data; struct Node* next; };
+struct Node *head=NULL, *top=NULL, *front=NULL, *rear=NULL;
+
+void insertLL(int x){ struct Node* n=malloc(sizeof(struct Node)); n->data=x; n->next=head; head=n; }
+void deleteLL(){ if(!head){ printf("List Empty\n"); return; } struct Node* t=head; printf("Deleted: %d\n",t->data); head=head->next; free(t); }
+void displayLL(){ struct Node* t=head; if(!t){ printf("List Empty\n"); return; } printf("LL: "); while(t){ printf("%d ",t->data); t=t->next; } printf("\n"); }
+
+void push(int x){ struct Node* n=malloc(sizeof(struct Node)); n->data=x; n->next=top; top=n; }
+void pop(){ if(!top){ printf("Stack Empty\n"); return; } struct Node* t=top; printf("Popped: %d\n",t->data); top=top->next; free(t); }
+void displayStack(){ struct Node* t=top; if(!t){ printf("Stack Empty\n"); return; } printf("Stack: "); while(t){ printf("%d ",t->data); t=t->next; } printf("\n"); }
+
+void enqueue(int x){ struct Node* n=malloc(sizeof(struct Node)); n->data=x; n->next=NULL; if(!rear) front=rear=n; else { rear->next=n; rear=n; } }
+void dequeue(){ if(!front){ printf("Queue Empty\n"); return; } struct Node* t=front; printf("Dequeued: %d\n",t->data); front=front->next; if(!front) rear=NULL; free(t); }
+void displayQueue(){ struct Node* t=front; if(!t){ printf("Queue Empty\n"); return; } printf("Queue: "); while(t){ printf("%d ",t->data); t=t->next; } printf("\n"); }
+
+int main(){
+    int ch,val;
+    do{
+        printf("\n1.Insert LL 2.Delete LL 3.Disp LL\n4.Push 5.Pop 6.Disp Stack\n7.Enqueue 8.Dequeue 9.Disp Queue 10.Exit\nEnter: ");
+        scanf("%d",&ch);
+        switch(ch){
+            case 1: scanf("%d",&val); insertLL(val); break;
+            case 2: deleteLL(); break;
+            case 3: displayLL(); break;
+            case 4: scanf("%d",&val); push(val); break;
+            case 5: pop(); break;
+            case 6: displayStack(); break;
+            case 7: scanf("%d",&val); enqueue(val); break;
+            case 8: dequeue(); break;
+            case 9: displayQueue(); break;
+        }
+    }while(ch!=10);
+    return 0;
+}

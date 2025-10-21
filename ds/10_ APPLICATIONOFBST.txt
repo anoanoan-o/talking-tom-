@@ -1,0 +1,32 @@
+#include <stdio.h>
+int binarySearch(int arr[], int n, int target) {
+int left = 0, right = n - 1;
+while (left <= right) {
+int mid = left + (right - left) / 2;
+if (arr[mid] == target)
+return mid; // Target found
+else if (arr[mid] < target)
+left = mid + 1;
+else
+right = mid - 1;
+}
+return -1;
+}
+int main() {
+int n, i, target;
+printf("Enter the number of product IDs in the inventory: ");
+scanf("%d", &n);
+int productIDs[n];
+printf("Enter %d sorted product IDs:\n", n);
+for (i = 0; i < n; i++) {
+scanf("%d", &productIDs[i]);
+}
+printf("Enter the product ID to search: ");
+scanf("%d", &target);
+int result = binarySearch(productIDs, n, target);
+if (result != -1)
+printf("Product ID %d is available at index %d.\n", target, result);
+else
+printf("Product ID %d is not available in the inventory.\n", target);
+return 0;
+}

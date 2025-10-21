@@ -1,0 +1,24 @@
+#Write a program in python to append data to existing file and display the entire file.
+#Write a program to count the number of lines, words and characters in a file.
+#1. Append and Display File
+f = open("newfile.txt", "a")
+f.write("SIES\n")
+f.write("GST\n")
+f.write("AIDS\n")
+f.write("SE\n")
+f.write("H1\n")
+f.close()
+f = open("newfile.txt", "r")
+print(f.read())
+f.close()
+
+#2. Count Lines, Words, and Characters
+with open("newfile.txt", 'r') as file:
+    data = file.read()
+    char_count = len(data)
+    word_count = len(data.split())
+    line_count = data.count('\n')
+    print("File analysis summary:")
+    print("Character count:", char_count)
+    print("Word count:", word_count)
+    print("Line count:", line_count)

@@ -1,0 +1,75 @@
+#stackkkkkkk
+def stack_menu():
+    stack = []
+
+    while True:
+        print("\n--- Stack Operations ---")
+        print("1. Push")
+        print("2. Pop")
+        print("3. Peek")
+        print("4. Display")
+        print("5. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            item = input("Enter item to push: ")
+            stack.append(item)
+            print(f"Pushed '{item}' onto stack.")
+        elif choice == '2':
+            if stack:
+                print("Popped:", stack.pop())
+            else:
+                print("Stack is empty.")
+        elif choice == '3':
+            if stack:
+                print("Top element:", stack[-1])
+            else:
+                print("Stack is empty.")
+        elif choice == '4':
+            print("Stack:", stack)
+        elif choice == '5':
+            print("Exiting stack program.")
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+stack_menu()
+
+#queueeeeeeeeeeeeeeee
+from collections import deque
+
+def queue_menu():
+    queue = deque()
+
+    while True:
+        print("\n--- Queue Operations ---")
+        print("1. Enqueue")
+        print("2. Dequeue")
+        print("3. Peek")
+        print("4. Display")
+        print("5. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            item = input("Enter item to enqueue: ")
+            queue.append(item)
+            print(f"Enqueued '{item}' to queue.")
+        elif choice == '2':
+            if queue:
+                print("Dequeued:", queue.popleft())
+            else:
+                print("Queue is empty.")
+        elif choice == '3':
+            if queue:
+                print("Front element:", queue[0])
+            else:
+                print("Queue is empty.")
+        elif choice == '4':
+            print("Queue:", list(queue))
+        elif choice == '5':
+            print("Exiting queue program.")
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+queue_menu()

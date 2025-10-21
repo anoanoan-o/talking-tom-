@@ -1,0 +1,57 @@
+#EXP2CLASSESOBJECTSINHERITANCE
+#Classes - Objects and Inheritance
+#Aim:
+#Write a program in python to display employee information by creating class and object.
+#Write a program in python to demonstrate student information using inheritance.
+#1. Classes and Objects (Employee Information)
+class Employee():
+    def set_data(self, n, empid, d, e, a, s):
+        self.name = n
+        self.emp_id = empid
+        self.dept = d
+        self.exp = e
+        self.age = a
+        self.salary = s
+
+    def display_data(self):
+        print("name:", self.name)
+        print("Employee Id:", self.emp_id)
+        print("department:", self.dept)
+        print("experience:", self.exp)
+        print("age:", self.age)
+        print("salary:", self.salary)
+
+e1 = Employee()
+e1.set_data('Param', '124A8077', 'Finance', 2.5, 25, 25000)
+print("--- Employee 1 Data ---")
+e1.display_data()
+
+e2 = Employee()
+e2.set_data('Joshua', '124A8084', 'IT', 5, 28, 65000)
+print("\n--- Employee 2 Data ---")
+e2.display_data()
+
+#2. Inheritance (Student Information)
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_person_info(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+
+class Student(Person):
+    def __init__(self, name, age, rollno, dept):
+        super().__init__(name, age)
+        self.rollno = rollno
+        self.dept = dept
+
+    def display_student_info(self):
+        print("--- Student Information ---")
+        self.display_person_info()
+        print(f"Roll No: {self.rollno}")
+        print(f"Department: {self.dept}")
+
+s1 = Student("Joshua", 20, 84, "AIDS")
+s1.display_student_info()
